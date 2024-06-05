@@ -1,18 +1,24 @@
 let name = prompt("Please Enter Your Name: ");
 let gender;
 let orderType;
-
-while (true) { 
-    gender = prompt("Gender: ").toUpperCase();
-    if (gender == "male".toUpperCase()) {
-        alert("Welcome Mr." + name);
-        break
-    }
-    else if (gender == "female".toUpperCase()) {
-        alert("Welcome Ms." + name);
-        break;
+function genderFunction()
+{
+    while (true)
+    { 
+        gender = prompt("Gender: ").toUpperCase();
+        if (gender == "male".toUpperCase())
+        {
+            alert("Welcome Mr." + name);
+            break
+        }
+        else if (gender == "female".toUpperCase())
+        {
+            alert("Welcome Ms." + name);
+            break;
+        }
     }
 }
+genderFunction();
 
 if (confirm("Do you want to order?\n (Donuts/ Coffee/ Ice Cream/ Bakery )")) {
     orderType = prompt("What do you want to order " + name + "?");
@@ -47,10 +53,11 @@ alert(multiThree);
 //If the number is out of range, display an error message and prompt again until a valid number is entered.
 //Assume the user enters a number each time
 let userNum = +prompt("Enter a number between 0-100")
-while (true) 
-    if (userNum>=0 && userNum<=100)
+while (true) {
+    if (userNum >= 0 && userNum <= 100)
         break;
-userNum = +prompt("Error, Please enter a number between 0-100")
+    userNum = +prompt("Error, Please enter a number between 0-100")
+}
 
 //Q11: Prompt for an integer, then display the sum of the integers from 0 through the number entered
 let n = +prompt("Please enter a number to display the sum from 0 to that number");
