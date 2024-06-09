@@ -18,8 +18,16 @@ A simple web app for Donuts Factory where users place orders and check status.
 - Loop through array and print elements to console.
 
 ### Day 3: Refactoring with Functions
-- Create a `functionTask` branch.
-- Add a function for the gender question.
+- Creating a `functionTask` branch.
+- Adding a function for the gender question.
+
+### Day 4: DOM Manipulation
+- Adding user inputs to the HTML page.
+- Creating a `div` with an `id` so it can be accessed in JS.
+- In the JS file, use the following structure:
+
+- Adding a paragraph in the hero section that contains an introduction about the website.
+
 
 ## Branches
 - **main:** Main implementation.
