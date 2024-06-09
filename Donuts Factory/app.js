@@ -66,3 +66,41 @@ for (let i = 0; i <=n; i++) {
     sum += i;
 }
 alert(sum);
+
+
+// EX4 DOM task
+let user = ["Gender", "Age" , "Order"]
+let userData = [gender, "21", orderType];
+
+
+const userDiv = document.getElementById("user-order");
+//adding a paragraph inside the div
+const paragraph = document.createElement("p");
+const nameParagraph = document.createTextNode(name);
+paragraph.appendChild(nameParagraph);
+userDiv.appendChild(paragraph);
+//creating ol and put it inside the div
+const orderList = document.createElement("ol");
+userDiv.appendChild(orderList);
+
+
+for (let i = 0; i < user.length; i++) {
+const listItem = document.createElement("li");
+const itemData = document.createTextNode(user[i] +": " + userData[i]);
+orderList.appendChild(listItem);
+listItem.appendChild(itemData);
+}
+
+//styling 
+userDiv.style.textAlign = "center";
+paragraph.style.fontSize = "25px";
+paragraph.style.fontWeight = "700";
+orderList.style.display = "inline-block";
+orderList.style.textAlign = "left";
+
+// introduction paragraph on hero section 
+const heroSection = document.getElementsByClassName("hero")[0];
+const introPara = document.createTextNode("Indulge in our freshly baked and delicious donuts!");
+heroSection.appendChild(introPara);
+
+
