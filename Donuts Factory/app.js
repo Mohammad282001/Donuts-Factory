@@ -1,29 +1,29 @@
-let name = prompt("Please Enter Your Name: ");
-let gender;
-let orderType;
-function genderFunction()
-{
-    while (true)
-    { 
-        gender = prompt("Gender: ").toUpperCase();
-        if (gender == "male".toUpperCase())
-        {
-            alert("Welcome Mr." + name);
-            break
-        }
-        else if (gender == "female".toUpperCase())
-        {
-            alert("Welcome Ms." + name);
-            break;
-        }
-    }
-}
-genderFunction();
+// let name = prompt("Please Enter Your Name: ");
+// let gender;
+// let orderType;
+// function genderFunction()
+// {
+//     while (true)
+//     { 
+//         gender = prompt("Gender: ").toUpperCase();
+//         if (gender == "male".toUpperCase())
+//         {
+//             alert("Welcome Mr." + name);
+//             break
+//         }
+//         else if (gender == "female".toUpperCase())
+//         {
+//             alert("Welcome Ms." + name);
+//             break;
+//         }
+//     }
+// }
+// genderFunction();
 
-if (confirm("Do you want to order?\n (Donuts/ Coffee/ Ice Cream/ Bakery )")) {
-    orderType = prompt("What do you want to order " + name + "?");
-    alert("Your order is getting prepared");
-}
+// if (confirm("Do you want to order?\n (Donuts/ Coffee/ Ice Cream/ Bakery )")) {
+//     orderType = prompt("What do you want to order " + name + "?");
+//     alert("Your order is getting prepared");
+// }
 
 
 
@@ -71,30 +71,47 @@ if (confirm("Do you want to order?\n (Donuts/ Coffee/ Ice Cream/ Bakery )")) {
 
 
 
-
-// EX4 DOM task
-let user = ["Gender", "Age" , "Order"]
-let userData = [gender, "21", orderType];
-
-
+// EX5: Events 
+/*
+    4.read the data from the forms and display it on the console and the html page
+*/
+let submitBtn = document.getElementById("submitBtn");
 const userDiv = document.getElementById("user-order");
-//adding a paragraph inside the div
 const paragraph = document.createElement("p");
-const nameParagraph = document.createTextNode(name);
+let nameParagraph = document.createTextNode("name");
+const orderList = document.createElement("ol");
 paragraph.appendChild(nameParagraph);
 userDiv.appendChild(paragraph);
-//creating ol and put it inside the div
-const orderList = document.createElement("ol");
 userDiv.appendChild(orderList);
 
+let customer = {};
+submitBtn.onclick = function (event) {
+    event.preventDefault();
+    let name = document.getElementById("customer-name").value;
+    let gender = document.getElementById("customer-gender").value;
+    let age = document.getElementById("customer-age").value;
+    let order = document.getElementById("customer-orderType").value;
+    let isCold = document.getElementById("isCold").checked;
 
-for (let i = 0; i < user.length; i++) {
-const listItem = document.createElement("li");
-const itemData = document.createTextNode(user[i] +": " + userData[i]);
-orderList.appendChild(listItem);
-listItem.appendChild(itemData);
+    customer.name = name;
+    customer.gender = gender;
+    customer.age = age;
+    customer.order = "Hot " + order;
+    customer.isCold = isCold;
+    
+    if (customer.isCold) {
+        customer.order = "Iced " + order
+    }
+    
+    nameParagraph.nodeValue = customer.name
+    for (let i = 1; i < Object.keys(customer).length - 1; i++) {
+        const listItem = document.createElement("li");
+        const itemData = document.createTextNode(Object.values(customer)[i]);
+        listItem.appendChild(itemData);
+        orderList.appendChild(listItem);
 }
 
+}
 //styling 
 userDiv.style.textAlign = "center";
 paragraph.style.fontSize = "25px";
@@ -106,5 +123,10 @@ orderList.style.textAlign = "left";
 const heroSection = document.getElementsByClassName("hero")[0];
 const introPara = document.createTextNode("Indulge in our freshly baked and delicious donuts!");
 heroSection.appendChild(introPara);
+
+
+
+
+
 
 
